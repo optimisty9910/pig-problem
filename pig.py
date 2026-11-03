@@ -1,6 +1,26 @@
 def pig_latin(sentence):
     # Write your solution here!
-    pass
+    new_sentence = sentence.split()
+    new_words = []
+
+    for word in new_sentence:
+        new_word = pig_latin_word(word)
+        new_words.append(new_word)
+
+    return " ".join(new_words)
+
+def pig_latin_word(word):
+    if not word:
+        return ""
+
+    first_letter = word[0]
+    if first_letter in ['a', 'e', 'i', 'o', 'u']:
+        return word
+
+    new_word = word[1:] + first_letter + 'ay'
+
+    return new_word
+
 
 # Test cases
 assert pig_latin("something") == "omethingsay"
